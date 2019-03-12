@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: employee-app
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      name: employee-app
+      labels:
+        app: employee-app
+    spec:
+      containers:
+        - name: employee-app
+          image: sai194/employee-app
+          ports:
+           - name: app-port
+             containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: employee-svc
+spec:
+  ports:
+    - port: 8080
+      nodePort: 31007
+      targetPort: app-port
+      protocol: TCP
+  selector:
+    app: employee-app
+  type: NodePort

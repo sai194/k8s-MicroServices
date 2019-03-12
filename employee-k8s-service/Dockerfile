@@ -9,7 +9,7 @@ RUN apt-get update && \
 RUN mkdir -p /app && mkdir -p /app/jars
 WORKDIR /app
 RUN git clone https://github.com/sai194/k8s-MicroServices.git
-WORKDIR employee-k8s-service
+WORKDIR k8s-MicroServices/employee-k8s-service
 RUN mvn clean install
 COPY ./target/employee-k8s-service-1.0.jar /app/jars/
 WORKDIR /app/jars/
