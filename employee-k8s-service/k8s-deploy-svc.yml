@@ -29,9 +29,8 @@ metadata:
 spec:
   ports:
     - port: 8080
-      nodePort: 31007
       targetPort: app-port
       protocol: TCP
   selector:
     app: employee-app
-  type: NodePort
+  type: ClusterIP
