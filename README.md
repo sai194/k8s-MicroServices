@@ -26,3 +26,8 @@ kubectl  apply -f  k8s-deploy-svc-gke.yml
 kubectl get pods
 
 gcloud container clusters delete standard-cluster-1 --zone us-central1-a
+
+gcloud container clusters get-credentials organization-microservices --zone us-central1-a --project my-kubernetes-codelab-221217
+
+kubectl delete -f k8s-deploy-svc.yml
+
