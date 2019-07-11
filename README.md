@@ -24,3 +24,5 @@ git clone https://github.com/sai194/k8s-MicroServices.git<repo>
 kubectl version
 kubectl  apply -f  k8s-deploy-svc-gke.yml
 kubectl get pods
+
+gcloud container clusters delete standard-cluster-1 --zone us-central1-a
